@@ -46,10 +46,13 @@ const FeaturedProducts = ({ type }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await axios.get(import.meta.env.REACT_APP_API_URL, {
-          Authorization: "bearer" + import.meta.env.REACT_APP_API_TOKEN,
-        });
-        console.log(data)
+        const data = await axios.get(
+          import.meta.env.VITE_API_URL + "/products",
+          {
+            Authorization: "bearer" + import.meta.env.VITE_API_TOKEN,
+          }
+        );
+        console.log(data);
       } catch (error) {
         console.log(error);
       }
