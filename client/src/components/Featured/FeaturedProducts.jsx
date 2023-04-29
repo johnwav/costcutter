@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
-import "./FeaturedProducts.scss"
+import "./FeaturedProducts.scss";
+import axios from "axios";
 
 const FeaturedProducts = ({ type }) => {
   const data = [
@@ -31,7 +32,7 @@ const FeaturedProducts = ({ type }) => {
       price: 12,
     },
     {
-      id: 3,
+      id: 4,
       img: "https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       title: "Coat",
       isNew: false,
@@ -39,6 +40,23 @@ const FeaturedProducts = ({ type }) => {
       price: 12,
     },
   ];
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await axios.get(import.meta.env.REACT_APP_API_URL, {
+          Authorization: "bearer" + import.meta.env.REACT_APP_API_TOKEN,
+        });
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="featuredProducts">
       <div className="top">
