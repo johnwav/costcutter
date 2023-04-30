@@ -63,8 +63,8 @@
       "type": "enumeration",
       "enum": [
         "normal",
-        "featured ",
-        "trending"
+        "trending",
+        "featured"
       ]
     }
   }
