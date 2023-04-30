@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 const Products = () => {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState();
+  const [sort, setSort] = useState("asc");
   const [selectedSubCat, setSelectedSubCat] = useState([]);
 
   const { data, loading, error } = useFetch(
@@ -23,6 +23,8 @@ const Products = () => {
         : selectedSubCat.filter((item) => item !== value)
     );
   };
+
+  console.log(data)
   return (
     <div className="products">
       <div className="left">
@@ -51,6 +53,7 @@ const Products = () => {
               min={0}
               max={1000}
               onChange={(e) => setMaxPrice(e.target.value)}
+              value={100}
             />
             <span>{maxPrice}</span>
           </div>
@@ -80,7 +83,11 @@ const Products = () => {
         </div>
       </div>
       <div className="right">
-        <img className="catImg" src="" alt="" />
+        <img
+          className="catImg"
+          src="https://img.ltwebstatic.com/images3_acp/2020/01/13/157889589779510114a29e361fe437fcb63d0c17ca.webp"
+          alt=""
+        />
         <List
           catId={catId}
           maxPrice={maxPrice}

@@ -48,14 +48,9 @@ const Product = () => {
             </div>
           </div>
           <div className="right">
-            <h1>Title</h1>
+            <h1>{data?.attributes?.title}</h1>
             <span className="price">${data?.attributes?.price}</span>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus reprehenderit saepe tempora tenetur vero asperiores
-              dolore et iste, pariatur repellat ducimus voluptatem, expedita
-              officiis beatae! Recusandae quis deleniti omnis dolorem!
-            </p>
+            <p>{data?.attributes?.desc}</p>
             <div className="quantity">
               <button
                 onClick={() =>
