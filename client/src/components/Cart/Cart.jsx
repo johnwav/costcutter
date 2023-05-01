@@ -2,7 +2,7 @@ import React from "react";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import "./Cart.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem } from "../../redux/cartReducer";
+import { removeItem, resetCart } from "../../redux/cartReducer";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart.products);
@@ -41,7 +41,7 @@ const Cart = () => {
       </div>
 
       <button>PROCEED TO CHECKOUT</button>
-      <span className="reset">Reset Cart</span>
+      <span className="reset" onClick={() => dispatch(resetCart())}>Reset Cart</span>
     </div>
   );
 };
